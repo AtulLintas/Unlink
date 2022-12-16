@@ -1,0 +1,95 @@
+.main_differ_container{
+    margin-top: 10rem;
+    text-align: center;
+    background-image: url(/public/images/grey_circle.svg);
+    background-repeat: no-repeat;
+    background-position: -50% 0%;
+
+    /* align-items: center; */
+    /* background-color: palevioletred; */
+
+}
+.main_differ_container h1{
+    text-transform: uppercase;
+	background: linear-gradient(to right, #5798d2 40%, #712dc0 60%);
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+.main_differ_container p{
+    font-size: 1.5rem;
+    width: 70%;
+    font-weight: 400;
+    padding-top: 1rem;
+    margin: auto;
+}
+.sub_differ_container{
+    width: 83%;
+    margin: auto;
+    padding: 3rem 0rem;
+    display: flex;
+    align-items: center;
+    /* background-color: aquamarine; */
+}
+.btn_differ{
+    width: 40%;
+    /* background-color: orange; */
+    display: inline-block;
+   
+}
+.differ_btn button{
+    width: 25rem;
+    height: 9rem;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 5px 5px 8px #00000050;
+    background-image: linear-gradient(#ffffff, #ecf6fc);
+
+    /* margin-left: -3rem; */
+    
+}
+.differ_btn button:hover{
+	background: linear-gradient(to right, #5799d2d4 0%, #722dc0d4 100%);
+    color: #ffffff;
+}
+.differ_btn button + img:hover{
+    background-color: red;
+}
+.differ_btn img{
+    margin: 2rem 0rem 0rem -3rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #2072BB , #7339B4);
+    position: absolute;
+}
+.differ_btn_2{
+    margin: 2rem 0rem;
+}
+.btn_detail_differ{
+    width: 60%;
+    text-align: left;
+    padding-left: 2rem;
+    /* background-color: rgb(234, 234, 255); */
+    display: inline-block;
+}
+.btn_detail_differ img{
+    width: 100%;
+    height: auto;
+    margin: 2rem  0rem;
+}
+.btn_detail_differ h3{
+    font-size: 2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.btn_detail_differ p{
+    color: rgba(0, 0, 0, 0.728);
+    font-size: 1.3rem;
+    width: 100%;
+    font-weight:normal;
+    
+}
