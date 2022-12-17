@@ -4,6 +4,7 @@ import "./banner.css";
 function Banner() {
   return (
     <>
+      {/* -----------------------Home Landing component------------------ */}
       <div className="main_banner">
         <div className="banner_container">
           <div className="banner_content">
@@ -12,9 +13,9 @@ function Banner() {
               <span>Technology</span> partner
             </h1>
             <p>
-              We assist companies in elevating their notion of what’s possible
+              We assist companies in elevating their notion of what's possible
               when our limitless technology expertise is interfaced with an
-              inquisitive understanding of their business goals. Let’s talk
+              inquisitive understanding of their business goals. Let's talk
               about how we can create something awesome together.
             </p>
             <div className="banner_icon">
@@ -34,7 +35,7 @@ function Banner() {
           </div>
         </div>
       </div>
-      {/* ---------------------Banner Card------------------------------ */}
+      {/* ---------------------Banner 3 Cards------------------------------ */}
 
       <div className="banner_card_container">
         <div className="card-group banner_card_group">
@@ -85,36 +86,6 @@ function Banner() {
           </div>
         </div>
       </div>
-
-      {/* <div className="row banner_card_container" >
-  <div className="col-sm-3">
-    <div className="card card_item">
-      <div className="card-body">
-      <img src={process.env.PUBLIC_URL+"/images/unlink.svg"} alt="icon" /><br/><br />
-        <h5 className="card-title">Product Engineering</h5><br />
-        <p className="card-text">Realize your vision with a tailored software, delivered on-time and within your budget.</p>
-      </div>
-    </div>
-  </div>
-  <div className="col-sm-3">
-    <div className="card card_item">
-      <div className="card-body">
-      <img src={process.env.PUBLIC_URL+"/images/unlink.svg"} alt="icon" /><br/><br />
-        <h5 className="card-title">Smart Team</h5><br />
-        <p className="card-text">Boost your development with our cross-functional experts.</p>
-      </div>
-    </div>
-  </div>
-  <div className="col-sm-3">
-    <div className="card card_item">
-      <div className="card-body">
-      <img src={process.env.PUBLIC_URL+"/images/unlink.svg"} alt="icon" /><br/><br />
-        <h5 className="card-title">Enterprise Solution</h5><br />
-        <p className="card-text">Create efficiencies at a large scale delivering hyper growth.</p>
-      </div>
-    </div>
-  </div>
-</div> */}
     </>
   );
 }
