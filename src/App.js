@@ -19,7 +19,7 @@ function App() {
       
       </div>
       <div className="app_h1">
-      <h1 >Phone & Desktop Only</h1>
+      <h1 >Coming soon...<br/><br/>Phone & Desktop Only</h1>
       </div>
     </>
   );

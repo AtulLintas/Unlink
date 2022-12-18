@@ -39,7 +39,7 @@
 .app_h1{
   width: 100%;
   height: 100vh;
-  padding: 10rem;
+  padding: 9rem;
   background-image: linear-gradient(to right, #2072bb, #7339b4);
   display: none;
 }
