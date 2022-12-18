@@ -16,7 +16,7 @@ function Navbar() {
           {/* -----------------------Menu item link--------------------- */}
           <ul>
             <li>
-              <a href="#"> About Unlink </a>
+              <a href="#"> About Unknown </a>
             </li>
             <li>
               <a href="#">Services</a>

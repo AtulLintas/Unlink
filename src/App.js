@@ -9,12 +9,18 @@ import OurServices from "./Component/BodyContent/OurServices";
 function App() {
   return (
     <>
+    <div className="app_content">
       <Navbar />
       <Banner />
       <OurServices />
       <AboutUs />
       <Different />
       <Footer />
+      
+      </div>
+      <div className="app_h1">
+      <h1 >Phone & Desktop Only</h1>
+      </div>
     </>
   );
 }

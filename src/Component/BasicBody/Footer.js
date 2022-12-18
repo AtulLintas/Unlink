@@ -82,10 +82,10 @@ function Footer() {
           <div className="footer_copyright">
             <div className="copyright_text">
               <h3>
-                <span>Unlink</span> Technologies
+                <span>Unknown</span> Technologies
               </h3>
               <p>
-                &#169; copyright 2022 | All rights reserved by unlink
+                &#169; copyright 2022 | All rights reserved by unknown
                 technologies
               </p>
               <h6>Privacy Policy</h6>
