@@ -87,12 +87,16 @@
   border: 0;
   background-color: #7239b400;
 }
+
 .banner_card_body {
   width: 20rem;
   overflow: auto;
   padding: 2rem 2rem;
   background-image: linear-gradient(#ffffff, #a5d4fb3b);
   box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.47);
+}
+.banner_card_body:hover {
+  box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.47);
 }
 .banner_card_body p {
   font-size: 1rem;

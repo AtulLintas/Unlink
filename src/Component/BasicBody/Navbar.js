@@ -36,7 +36,7 @@ function Navbar() {
           </ul>
           {/* -----------------------hamburger btn-------------------- */}
           <div className="mobile_menu">
-            <i class="bi bi-list "></i>
+            <i className="bi bi-list "></i>
           </div>
         </div>
       </nav>

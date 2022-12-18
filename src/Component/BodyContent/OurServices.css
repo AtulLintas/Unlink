@@ -55,8 +55,11 @@
 .os_main_item {
   border-radius: 25px;
   box-shadow: 2px 2px 6px #00000050;
-
   background-color: rgb(255, 255, 255);
+}
+.os_main_item:hover {
+  
+  box-shadow: 8px 15px 15px #00000050;
 }
 .os_mid {
   margin-left: 1rem;
@@ -68,3 +71,22 @@
 .os_right {
   margin-left: 2rem;
 }
+
+/* @media (max-width:500) {
+  .os_mid {
+    margin-left: 0rem;
+    margin-right: 0rem;
+  }
+  .os_left {
+    margin-right: 0rem;
+  }
+  .os_right {
+    margin-left: 0rem;
+  }
+  .os_main_item {
+    
+    border-radius: 25px;
+    box-shadow: 2px 2px 6px #00000050;
+    background-color: rgb(255, 255, 255);
+  }
+} */

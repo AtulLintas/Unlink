@@ -87,7 +87,7 @@ nav li a:hover {
   display: none;
 }
 /* ------------------------Responsive web------------------------- */
-@media (max-width: 1250px) {
+@media (max-width: 1270px) {
   nav li {
     padding: 0rem 1rem;
   }
