@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './BasicBody/Header';
 import Footer from './BasicBody/Footer';
 import Hero from './Components/Hero';
+import Process from './Components/Workingprocess/Process';
 
 
 const AppSuccessor = () => {
@@ -9,6 +10,7 @@ const AppSuccessor = () => {
     <>
        <Header/>
        <Hero/>
+       <Process/>
        <br /><br />brb
        rbr
        bbrb
