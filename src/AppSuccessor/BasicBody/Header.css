@@ -1,0 +1,208 @@
+nav {
+  background-color: rgb(255, 255, 255);
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.Navbar_container-bg {
+  /* background-color: #57c478bc; */
+  background-color: #f5d400;
+
+  transition: 0.3s;
+}
+.Content_Box {
+  width: 80%;
+  height: 4rem;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  /* background-color: #57c478; */
+}
+span {
+  color: blueviolet;
+  display: block;
+}
+.s1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.s2 {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  word-spacing: 0.6rem;
+  margin-top: -0.5rem;
+}
+.Menu_Link {
+  height: 1.5rem;
+}
+.Menu_Link ul {
+  display: inline-flex;
+  align-items: center;
+}
+.Menu_Link li {
+  /* display: inline-block; */
+  list-style: none;
+  padding: 0px 1rem;
+}
+.Menu_Link li a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.7);
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+}
+nav ul li a::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 15px;
+  bottom: 7px;
+  border: 4px solid blueviolet;
+  border-width: 0 0 2px 2px;
+  transition: all 0.2s;
+  opacity: 0;
+}
+nav ul li a::after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 7px;
+  right: 15px;
+  border: 4px solid blueviolet;
+  border-width: 2px 2px 0 0;
+  transition: all 0.2s;
+  opacity: 0;
+}
+nav ul li a:hover::before {
+  left: -6px;
+  bottom: -6px;
+  opacity: 1;
+}
+nav ul li a:hover:after {
+  top: -6px;
+  right: -6px;
+  opacity: 1;
+}
+nav li a:hover {
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+}
+.Btn_container {
+  display: inline-flex;
+  gap: 2rem;
+}
+.Login_Btn button {
+  width: 8rem;
+  height: 2.5rem;
+  font-weight: 600;
+  color: blueviolet;
+  border: 3px solid blueviolet;
+  background-color: #fff;
+  border-radius: 50px;
+}
+.Login_Btn button:hover {
+  color: #fff;
+  border: 0;
+  background-color: blueviolet;
+}
+.List_btn {
+  display: none;
+}
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  color: blueviolet;
+  margin-top: -0.5rem;
+}
+.Mob_menu_img {
+  width: 40%;
+  float: left;
+  margin-top: 1rem;
+}
+.Mob_menu_img img {
+  width: 100%;
+  margin-top: -5rem;
+}
+
+.coin_Img {
+  display: none;
+}
+@media (max-width: 1024px) {
+  .Content_Box {
+    width: 90%;
+  }
+  .Menu_Link {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    width: 100%;
+    height: 70vh;
+    position: fixed;
+    top: 6rem;
+    left: -100%;
+    z-index: -1;
+    transition: all 0.4s;
+    background-color: #000000;
+  }
+  .Menu_Link ul {
+    display: flex;
+    flex-direction: column;
+  }
+  .Menu_Link li {
+    text-align: center;
+    padding: 1rem 0;
+  }
+  .Menu_Link li a:hover {
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: blueviolet;
+  }
+  .Menu_Link ul li a {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  .hamburger {
+    display: block;
+  }
+  .active {
+    left: 0;
+  }
+  nav ul li a::before {
+    border: 4px solid rgb(255, 255, 255);
+    border-width: 0 0 2px 2px;
+  }
+  nav ul li a::after {
+    border: 4px solid rgb(255, 255, 255);
+    border-width: 2px 2px 0 0;
+  }
+  .coin_Img {
+    display: block;
+  }
+}
+
+@media (max-width: 500px) {
+  .Hide_btn {
+    display: none;
+  }
+  .List_btn {
+    display: block;
+  }
+  .Login_Btn button {
+    width: 10rem;
+    background-color: #000;
+  }
+
+  .Mob_menu_img img {
+    width: 100%;
+    margin-top: -2rem;
+  }
+}
