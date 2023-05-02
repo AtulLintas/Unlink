@@ -1,0 +1,40 @@
+.Scroll_Back{
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+    color: #fff;
+    box-shadow: .5px 1px 6px rgba(0, 0, 0, 0.804);
+    border-radius: 50px;
+    background-color: rgb(137, 43, 226);
+    bottom: 4rem;
+    right: 4rem;
+    z-index: 999;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+}
+.Scroll_Icon{
+    animation: scrollUp 1s linear infinite alternate-reverse;
+}
+
+@keyframes scrollUp {
+    0%{
+        transform: translateY(-.5rem);
+    }
+    100%{
+        transform: translateY(.5rem);
+    }
+}
+
+@media (max-width:500px) {
+    .Scroll_Back{
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
+        bottom: 1rem;
+        right: 1rem;
+    }
+}

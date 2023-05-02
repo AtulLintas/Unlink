@@ -1,0 +1,65 @@
+.Mony_Time_Container {
+  width: 100%;
+  height: auto;
+  display: grid;
+  padding: 2rem 10rem;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  background-color: rgba(137, 43, 226, 0.123);
+}
+.Money_text h1 {
+  font-size: 2.5rem;
+}
+.Icon {
+  color: #f5d400;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+}
+.Money_text {
+  text-align: center;
+}
+.Money_text span {
+  font-size: 1.5rem;
+  margin: 1.5rem 0;
+  color: rgba(0, 0, 0, 0.598);
+}
+.Money_text button {
+  width: 20rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  background-color: blueviolet;
+  color: #fff;
+  border: 0;
+  border-radius: 50px;
+}
+.Money_text button:hover {
+  background-color: rgba(137, 43, 226, 0.836);
+}
+/* .Money_img {
+  background-color: #f5d400;
+} */
+.Money_img img {
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 1024px) {
+  .Mony_Time_Container {
+    padding: 2rem 2rem;
+  }
+}
+@media (max-width: 786px) {
+  .Money_text h1 {
+    font-size: 1.5rem;
+  }
+  .Money_text button {
+    width: 10rem;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 500px) {
+  .Mony_Time_Container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

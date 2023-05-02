@@ -1,0 +1,83 @@
+.Benefits_container {
+  width: 100%;
+  height: 90vh;
+   background-image: url(https://cdn.dribbble.com/users/1712260/screenshots/5823675/media/8d31e910b453869b937f527b4e40f004.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* background: black; */
+}
+.Video{
+    color: #fff;
+    width: 100%;
+    height: 90vh;
+      padding: 2rem 6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    background: rgba(0, 0, 0, 0.822);
+}
+
+.Benefits_item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  text-align: center;
+  /* background-color: aquamarine; */
+}
+.benefits_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5rem;
+}
+.benefits_list h1 {
+  font-size: 3rem;
+  color: #f5d400;
+}
+@media (max-width: 1024px) {
+    .Video{
+      
+          padding: 2rem 6rem;
+         
+    }
+  .benefits_list h1 {
+    font-size: 2.5rem;
+    color: #f5d400;
+  }
+  .benefits_list h5 {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 786px) {
+  .benefits_list {
+    display: grid;
+    gap: 1rem;
+  }
+}
+@media (max-width: 500px) {
+    .Video{
+      
+        padding: 2rem 6rem;
+       
+  }
+  .Benefits_item {
+    gap: 0;
+  }
+  .benefits_list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  .benefits h1 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+  .benefits_list h1 {
+    font-size: 2rem;
+    color: #f5d400;
+  }
+  .benefits_list h5 {
+    font-size: 1rem;
+  }
+}

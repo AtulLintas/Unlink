@@ -18,6 +18,7 @@ const Hero = () => {
             <img
               src={process.env.PUBLIC_URL + "/images/products.png"}
               alt="products"
+              className="Img_motion"
             />
           </div>
         </div>

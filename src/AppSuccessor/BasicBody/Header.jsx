@@ -50,7 +50,7 @@ const Header = () => {
               </li>
               <li className="coin_Img">
               <div className="Mob_menu_img">
-                <img src={process.env.PUBLIC_URL + "/images/handgold.png"} alt="gold" />
+                <img src={process.env.PUBLIC_URL + "/images/handgold.png"} className="Hand_motion" alt="gold" />
               </div>
                 </li>
             </ul>

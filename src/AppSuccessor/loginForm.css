@@ -1,0 +1,12 @@
+Form{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+}
+Form div{
+    padding: 2rem 0;
+}
