@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, } from 'react'
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaBars, FaXbox,  } from 'react-icons/fa';
 import { SidebarItem } from './Menus_Subitems';
 import Dropdown from './Dropdown';
@@ -44,15 +44,18 @@ const Sidebar = () => {
   const [sidebar, setSidebar]= useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   
-  
+ const History = useNavigate()
+ 
 
 
   return (
     <>
-    <Nav>
-      <NavIcon to="#">
+    <Nav >
+      <NavIcon to="#" className='Headerbar'>
         <FaBars onClick={showSidebar}/>
        
+        <button onClick={() => History(-1)}>Back</button>
+      
       </NavIcon>
     </Nav>
     <SidebarNav sidebar={sidebar}>
