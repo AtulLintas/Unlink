@@ -48,6 +48,21 @@ export const SidebarItem = [
         title: "Add Craft",
         path: "/Master",
       },
+      {
+        id:3.5,
+        title: "Add Craft",
+        path: "/Master",
+      },
+      {
+        id:3.5,
+        title: "Add Craft",
+        path: "/Master",
+      },
+      {
+        id:3.5,
+        title: "Add Craft",
+        path: "/Master",
+      },
     ],
   },
   {
