@@ -203,3 +203,164 @@ console.log("all months matched ok:",newClosingBalance)
 };
 
 export default Test;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {/* ------------------Server Code-------------------- */}
+
+const express = require("express");
+const cors = require("cors");
+const mysql = require("mysql");
+
+
+const app = express();
+app.use(express.json());
+
+app.use(cors());
+
+const db = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "report_automation"
+})
+
+//-----------------get company table-----------------------
+app.get("/company", (req, res) => {
+    const sql = "SELECT * FROM companies";
+    db.query(sql, (err, list) => {
+        if (err) return res.json("Error");
+        return res.json(list);
+    })
+})
+
+
+
+//-----------------get ladger table-----------------------
+// app.get("/ledger/:companyTable", (req, res) => {
+//     const sql = "SELECT * FROM lucknow_gia_grp";
+//     db.query(sql, (err, list) => {
+//         if (err) return res.json("Error");
+//         return res.json(list);
+//     })
+// })
+
+
+
+//-----------------get ledger table-----------------------
+app.get("/ledger/:companyTable", (req, res) => {
+    const companyTable = req.params.companyTable;
+    //console.log("ledger data company table: ",companyTable)
+    const sql = `SELECT DISTINCT Ledger,LedgerNumCode FROM ${companyTable}`;
+    //const values = [companyTable];
+    db.query(sql, (err, list) => {
+        //console.log(list);
+        if (err) return res.json("Error");
+        return res.json(list);
+
+    })
+})
+//-----------------selected ledger -----------------------
+app.get("/companyTableLedger/:ledgerCl/:companyTable", (req, res) => {
+    const companyTable = req.params.companyTable;
+    const LedgerNumCode = req.params.ledgerCl;
+   // console.log("ledgerCode: ",LedgerNumCode ,"companyTable: ",companyTable);
+    const sql = `SELECT * FROM ${companyTable} WHERE LedgerNumCode = ?`;
+    const values = [LedgerNumCode];
+    
+    db.query(sql,values, (err, list) => {
+      // console.log("query list:",list);
+        if (err) return res.json("Error");
+        return res.json(list);
+    });
+});
+
+
+//------------------------------------------------
+// app.get("/ledger/:companyTable", (req, res) => {
+//     const companyTable = req.params.companyTable;
+//     const sql1 = `SELECT * FROM companies where company_name = ?`;
+//     const values = [companyTable];
+  
+//     db.query(sql1, values, (err, list) => {
+//       if (err) return res.json("Error");
+  
+//       if (list.length === 0) {
+//         return res.json("Company not found");
+//       }
+  
+//       const company = list[0];
+//       const sql2 = `SELECT * FROM ${company.table_name}`;
+  
+//       db.query(sql2, (err, list2) => {
+//         if (err) return res.json("Error");
+  
+//         const response = {
+//           company,
+//           tables: list2,
+//         };
+  
+//         return res.json(response);
+//       });
+//     });
+//   });
+
+
+//-----------------get locations table-----------------------
+// app.get("/locations/:companyId", (req, res) => {
+//     const companyId = req.params.companyId;
+//     const sql = "SELECT * FROM locations where company_id = ?";
+//     const values = [companyId];
+//     db.query(sql, values, (err, list) => {
+//         if (err) return res.json("Error");
+//         return res.json(list);
+//     })
+// })
+
+
+
+// app.post('/send_group_company', (req, res) => {
+//     const groupCompanyData = req.body.updatedValue;
+//     console.log("getValue :",groupCompanyData);
+
+//    // Extract and log only the 'id' values
+//    const ids = groupCompanyData.map((group) => group.id);
+// //    console.log('Received groupCompany ids:', ids);
+//    const sql = `select * from companies where group_company_id = ${ids}`;
+//    console.log("sqlData",sql);
+//     db.query(sql, values, (err, result) => {
+//         if (err) {
+//             console.error("MySQL Error:", err);
+//             return res.status(500).json("Error: " + err.message);
+//         }else{
+//             return res.json(result);
+//         }
+//     });
+// });
+
+
+
+
+
+//-------server port-------------------
+app.listen(8082, () => {
+    console.log("listening at port 8082");
+})
+
