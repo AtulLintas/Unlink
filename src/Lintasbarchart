@@ -1,0 +1,205 @@
+import React, { useEffect, useRef, useState } from "react";
+import Chart from "chart.js/auto";
+// import Select from "react-select";
+
+const Test = () => {
+  const [company, setCompany] = useState([]);
+  const [companyTable, setCompanyTable] = useState();
+  const [ledger, setLedger] = useState([]);
+  const [ledgerCl, setLedgerCode] = useState();
+  const [ledgerData, setLedgerData] = useState([]);
+  const [months, setMonths] = useState([]);
+  const [updatedMonths, setUpdatedMonths]=useState([])
+  const [closingBalance, setClosingBalance] = useState([]);
+  const ledgerArray = Array.from(ledger);
+  const ledgerDataArrray = Array.from(ledgerData);
+  const labels = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+ //-------------getting first three letter of month after ledger is selected------------------
+  const handleExtractFirstThreeLetters = () => {
+    const firstThreeLetterMonth = months.map(item => item.substring(0, 3));
+    setUpdatedMonths(firstThreeLetterMonth);
+    console.log("new month",updatedMonths);
+
+    // Check for matching months and log them to the console
+    const matchingMonths = labels.filter(label => updatedMonths.includes(label.toLowerCase()));
+    console.log('Matching Months:', matchingMonths);
+  };
+//---------------compare month(s) for closing balance at the right place----------------------
+
+
+
+
+  //---------------------Company----------------------
+  useEffect(() => {
+    const getG_C = async () => {
+      const resG_C = await fetch("http://localhost:8082/company/");
+      const resgroupcompany = await resG_C.json();
+      setCompany(await resgroupcompany);
+    };
+    getG_C();
+  }, []);
+
+  const handleCompany = (event) => {
+    const getCompanyTable = event.target.value;
+    setCompanyTable(getCompanyTable);
+  };
+
+  //---------------------Ledger----------------------
+  useEffect(() => {
+    const getcompany = async () => {
+      const resCompany = await fetch(
+        `http://localhost:8082/ledger/${companyTable}`
+      );
+      const resC = await resCompany.json();
+      setLedger(await resC);
+    };
+    getcompany();
+  }, [companyTable]);
+
+  const handleLedger = (event) => {
+    const getLed = event.target.value;
+    //console.log("selected ledger:", getLed);
+    setLedgerCode(getLed);
+  };
+
+  //------------------------------selected ledger-------------------------------------
+  useEffect(() => {
+    const getLedgerData = async () => {
+      const resLedgerData = await fetch(
+        `http://localhost:8082/companyTableLedger/${ledgerCl}/${companyTable}`
+      );
+      const resL = await resLedgerData.json();
+      setLedgerData(await resL);
+      console.log("resl data", resL);
+
+      //-----------------set month and closing balance into variable----------------------
+      const ledgerMonth = ledgerDataArrray.map((data) => data.Month);
+      setMonths(ledgerMonth);
+
+      const ledgerClosingBalance = ledgerDataArrray.map((data) => data.ClosingBalance);
+      setClosingBalance(ledgerClosingBalance);
+
+      //console.log("ledgerMonth: ", months, "ledgerclosingbalance:",closingBalance);
+    };
+    getLedgerData();
+  }, [ledgerCl, companyTable]);
+
+  //--------------------------closing Balance and month--------------------
+  // useEffect(() => {
+  //   const getledgerCB = async () => {
+  //     const resLedger = await fetch(
+  //       `http://localhost:8082/ledgerClosingBalance/`
+  //     );
+  //     const resLCB = await resLedger.json();
+  //      console.log(resLCB);
+  //     setLedger(await resLCB);
+  //     // console.log(ledger);
+  //   };
+  //   getledgerCB();
+  // }, [ledgerCl]);
+  //--------------------------------------------------------------------
+
+  const chartRef = useRef(null);
+  let myChart = null;
+
+  useEffect(() => {
+    // Destroy the previous chart if it exists
+    if (myChart) {
+      myChart.destroy();
+    }
+
+// Check if all elements in updatedMonths match labels
+const allMonthsMatched = updatedMonths.every(month => labels.includes(month));
+
+// Set closingBalance based on the matching condition
+const newClosingBalance = allMonthsMatched ? closingBalance : Array(12).fill(0);
+
+
+console.log("all months matched ok:",newClosingBalance)
+    const ctx = chartRef.current.getContext("2d");
+    myChart = new Chart(ctx, {
+      type: "bar",
+      data: {
+       //labels:updatedMonths,
+        labels:["Jan","Fab","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+        datasets: [
+          {
+            label: "Bar Graph Data",
+          data: newClosingBalance,
+            backgroundColor: "rgba(75, 192, 192, 0.2)",
+            borderColor: "rgba(75, 192, 192, 1)",
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+    return () => {
+      if (myChart) {
+        myChart.destroy();
+      }
+    };  
+  }, [months, closingBalance]);
+
+  return (
+    <div>
+      <div>
+        {/* ------------------Select Company-------------------- */}
+        <select
+          id="company_name"
+          name="company_name"
+          onChange={(e) => handleCompany(e)}
+        >
+          <option value="">Select Company</option>
+          {company.map((getgc, i) => (
+            <option key={i} value={getgc.company_table}>
+              {getgc.company_name}
+            </option>
+          ))}
+        </select>
+        {/* --------------------Select Ledger------------------------ */}
+        <select
+          id="ledger_name"
+          name="ledger_name"
+          onChange={(e) => handleLedger(e)}
+          onClick={handleExtractFirstThreeLetters}
+        >
+          <option value="">Select Ledger</option>
+          {ledgerArray.map((getdata, i) => (
+            <option key={i} value={getdata.LedgerNumCode}>
+              {getdata.Ledger}
+            </option>
+          ))}
+        </select>
+
+        {/* <Select
+          value={selectedOption}
+          onChange={setSelectedOption}
+          options={company}
+          isSearchable
+          placeholder="Type to search or select"
+        /> */}
+        <div>
+          <h1>Get data from selected Ledger:</h1>
+          {ledgerDataArrray.map((data, i) => (
+            <div key={i}>
+              <h3>{data.Month}</h3>
+              <h3>{data.ClosingBalance}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+      <canvas ref={chartRef} width="400" height="200" />
+      
+    </div>
+  );
+};
+
+export default Test;
